@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
 
     @Override
     public void onFailure(String message) {
-
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -70,37 +70,37 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
 
     @Override
     public void setEmail(String message) {
-
+        emailEditText.setError(message);
     }
 
     @Override
     public void setAddress(String message) {
-
+        addressEditText.setError(message);
     }
 
     @Override
     public void setPhoneNo(String message) {
-
+        phoneNoEditText.setError(message);
     }
 
     @Override
     public void setUserName(String message) {
-
+        userNameEditText.setError(message);
     }
 
     @Override
     public void setPassword(String message) {
-
+        passwordEditText.setError(message);
     }
 
     @Override
     public void setRePassword(String message) {
-
+        re_passwordEditText.setError(message);
     }
 
     @Override
     public void setCheckAccept(String message) {
-
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     public EditText getFullNameEditText() {
