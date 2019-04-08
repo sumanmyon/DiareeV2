@@ -8,12 +8,16 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import www.sumanmyon.com.diareev2.R;
+import www.sumanmyon.com.diareev2.Register.Presenter.RegisterPresenter;
+import www.sumanmyon.com.diareev2.Register.Presenter.RegisterPresenterInterface;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView {
 
     private EditText fullNameEditText, emailEditText, addressEditText, phoneNoEditText, userNameEditText, passwordEditText, re_passwordEditText;
     private CheckBox acceptCheckBox;
     private Button registerButton;
+
+    private RegisterPresenterInterface presenter;
 
     private void bindingViews(){
         fullNameEditText = (EditText)findViewById(R.id.register_edit_name);
@@ -35,11 +39,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
         //todo Binding views
         bindingViews();
 
+        //todo calling presenter
+        presenter = new RegisterPresenter(this);
+
     }
 
     @Override
     public void onSuccess(String message) {
-        
+
     }
 
     @Override
