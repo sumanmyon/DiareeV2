@@ -3,9 +3,11 @@ package www.sumanmyon.com.diareev2.Register.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import www.sumanmyon.com.diareev2.R;
 import www.sumanmyon.com.diareev2.Register.Presenter.RegisterPresenter;
@@ -41,12 +43,19 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
 
         //todo calling presenter
         presenter = new RegisterPresenter(this);
+        //presenter.checkEditTxtNCheckBoxFields();
 
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.checkEditTxtNCheckBoxFields();
+            }
+        });
     }
 
     @Override
     public void onSuccess(String message) {
-
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -56,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
 
     @Override
     public void setFullName(String message) {
-
+        fullNameEditText.setError(message);
     }
 
     @Override
@@ -92,5 +101,37 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void setCheckAccept(String message) {
 
+    }
+
+    public EditText getFullNameEditText() {
+        return fullNameEditText;
+    }
+
+    public EditText getEmailEditText() {
+        return emailEditText;
+    }
+
+    public EditText getAddressEditText() {
+        return addressEditText;
+    }
+
+    public EditText getPhoneNoEditText() {
+        return phoneNoEditText;
+    }
+
+    public EditText getUserNameEditText() {
+        return userNameEditText;
+    }
+
+    public EditText getPasswordEditText() {
+        return passwordEditText;
+    }
+
+    public EditText getRe_passwordEditText() {
+        return re_passwordEditText;
+    }
+
+    public CheckBox getAcceptCheckBox() {
+        return acceptCheckBox;
     }
 }
