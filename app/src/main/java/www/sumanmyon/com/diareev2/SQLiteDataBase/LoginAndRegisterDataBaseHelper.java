@@ -1,5 +1,6 @@
 package www.sumanmyon.com.diareev2.SQLiteDataBase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -32,5 +33,23 @@ public class LoginAndRegisterDataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //todo Inserting/Registering user
+    public int insert(String userName, String pass){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(username,userName);
+        values.put(password,pass);
 
+        long result = db.insert(LOGINnREGISTER_TABLE,null,values);   
+        
+        if(result == -1){
+            db.close();
+            return -1;
+        }else {
+            //todo get id of registering user
+            int uid = 0;
+            
+            return uid;
+        }
+    }
 }
